@@ -1,15 +1,18 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import './App.css';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import Login from './pages/Login';
+import Products from './pages/Products';
+import Register from './pages/Register';
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <>
-    <h1>Teste Fullstack Lexart Labs </h1>
-    </>
+    <Routes>
+      <Route exact path='/' element= {<Navigate to='/login'/>} />
+      <Route path='/login' element={<Login />} />
+      <Route path='/products' element={<Products />} />
+      <Route path='/register' element={<Register />} />
+    </Routes>
   )
 }
 
