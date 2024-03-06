@@ -8,7 +8,7 @@ function App() {
 
   return (
     <>
-    <h1>Teste Fullstack Lexart Labs</h1>
+    <h1>Teste Fullstack Lexart Labs </h1>
     </>
   )
 }
