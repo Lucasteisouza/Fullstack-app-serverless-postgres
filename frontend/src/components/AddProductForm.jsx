@@ -23,6 +23,7 @@ function AddProductForm() {
     try {
       fetch(`${BACKEND_URL}/products`, {
         method: 'POST',
+        mode: 'no-cors',
         headers: {
           'Content-Type': 'application/json'
         },
