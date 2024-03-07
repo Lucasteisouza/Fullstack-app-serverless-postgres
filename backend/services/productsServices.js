@@ -18,8 +18,17 @@ const createProduct = async (name, price, brand, color) => {
   }
 };
 
+const deleteProduct = async (id) => {
+  try{
+  await products.destroy({ where: { id } });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 
 module.exports = {
   getAllProducts,
-  createProduct
+  createProduct,
+  deleteProduct
 };

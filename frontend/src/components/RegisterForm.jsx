@@ -10,7 +10,6 @@ function RegisterForm() {
 
   const handleChange = (e) => {
     setState({ ...state, [e.target.name]: e.target.value })
-    console.log(BACKEND_URL)
   };
 
   useEffect(() => {

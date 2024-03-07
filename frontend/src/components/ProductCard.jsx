@@ -1,13 +1,15 @@
+import { Link } from "react-router-dom";
+
 
 function ProductCard(props) {
   const { product } = props;
 
   return (
-    <div>
+    <Link to={`/products/${product.id}`}>
       <h2>{product.name}</h2>
       <p>{product.price}</p>
       <p>{product.color}</p>
-    </div>
+    </Link>
   )
 };
 

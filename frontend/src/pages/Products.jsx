@@ -6,25 +6,38 @@ const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
 function Products() {
   const navigate = useNavigate()
-  const [state, setState] = useState({ products: [] })
+  const [state, setState] = useState({ products: [], filteredProducts: [], search: ''})
 
-  useEffect(() => {
+  useEffect(() => {;
     fetch(`${BACKEND_URL}/products`)
     .then(response => response.json())
     .then(data => {
-      setState({ products: data })
+      setState({ ...state, products: data })
     })
   },[]);
 
+  useEffect(() => {
+    if (state.search === '') {
+      setState({ ...state, filteredProducts: state.products })
+    }
+    const filteredProducts = state.products.filter(product => product.name.toLowerCase().includes(state.search.toLowerCase()));
+    setState({ ...state, filteredProducts })
+  }, [state.products, state.search]);
+
+  const handleChange = (e) => {
+    setState({ ...state, [e.target.name]: e.target.value })
+  };
+
   return (
-    <div>
+    <>
       <h1>Produtos</h1>
-      <button onClick={() => navigate('/create-product')}>Adicionat produtos</button>
+      <input type="text" name="search" placeholder="Pesquisar" onChange={handleChange} />
+      <button onClick={() => navigate('/add-product')}>Adicionar produtos</button>
       <div>
-        {state.products.map(product => <ProductCard key={product.id} product={product} />)}
+        {state.filteredProducts.map(product => <ProductCard key={product.id} product={product} />)}
       </div>
 
-    </div>
+    </>
   )
 }
 
