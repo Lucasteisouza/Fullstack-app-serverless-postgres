@@ -7,7 +7,7 @@ function ProductCard(props) {
   return (
     <Link to={`/products/${product.id}`}>
       <h2>{product.name}</h2>
-      <p>{product.price}</p>
+      <p><strong>{`R$ ${product.price}`}</strong></p>
       <p>{product.color}</p>
     </Link>
   )
