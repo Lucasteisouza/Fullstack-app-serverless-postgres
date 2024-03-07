@@ -1,8 +1,14 @@
-import React from 'react'
+import Header from "../components/Header";
+import RegisterForm from "../components/RegisterForm";
+import Footer from "../components/Footer";
 
 function Register() {
   return (
-    <div>Register</div>
+    <>
+      <Header />
+      <RegisterForm />
+      <Footer />
+    </>
   )
 }
 

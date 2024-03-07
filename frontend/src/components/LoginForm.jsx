@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 function LoginForm() {
@@ -8,6 +8,14 @@ function LoginForm() {
   const handleChange = (e) => {
     setState({ ...state, [e.target.name]: e.target.value })
   }
+  useEffect(() => {
+    if (state.username.length > 5 && state.password.length > 5) {
+      setState({ ...state, isValidated: true })
+    } else {
+      setState({ ...state, isValidated: false })
+    }
+  }, [state.username, state.password, state.isValidated])
+
   const handleSubmit = (e) => {
     e.preventDefault()
     console.log(state)
@@ -21,7 +29,7 @@ function LoginForm() {
       <input type="text" id="username" name="username" placeholder="Nome de usuário" onChange={handleChange} />
       <label htmlFor="password">Senha</label>
       <input type="password" id="password" name="password" placeholder="Senha" onChange={handleChange} />
-      <button type="button">Entrar</button>
+      <button disabled={!state.isValidated} type="button" onClick={handleSubmit}>Entrar</button>
     </form>
   )
 }
