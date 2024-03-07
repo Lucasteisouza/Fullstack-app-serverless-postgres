@@ -11,7 +11,7 @@ const PORT = process.env.PORT;
 app.use(express.json());
 app.use(cors());
 
-app.use('/', (req, res) => res.send('Express API running on Vercel'));
+// app.use('/', (req, res) => res.send('Express API running on Vercel'));
 app.use('/login', loginRoute)
 app.use('/products', productsRoute)
 
