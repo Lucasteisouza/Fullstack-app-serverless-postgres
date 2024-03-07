@@ -18,6 +18,11 @@ function Products() {
 
   return (
     <div>
+      <h1>Produtos</h1>
+      <button onClick={() => navigate('/create-product')}>Adicionat produtos</button>
+      <div>
+        {state.products.map(product => <ProductCard key={product.id} product={product} />)}
+      </div>
 
     </div>
   )

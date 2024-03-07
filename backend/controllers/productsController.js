@@ -6,8 +6,8 @@ const getAllProducts = async (req, res) => {
 };
 
 const createProduct = async (req, res) => {
-  const { name, price } = req.body;
-  const newProduct = await productsServices.createProduct(name, price);
+  const { name, price, brand, color } = req.body;
+  const newProduct = await productsServices.createProduct(name, price, brand, color);
   return res.status(201).json(newProduct);
 };
 

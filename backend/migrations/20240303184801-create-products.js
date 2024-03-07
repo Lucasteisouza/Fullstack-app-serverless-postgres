@@ -21,6 +21,9 @@ module.exports = {
       color: {
         type: Sequelize.STRING
       },
+      price: {
+        type: Sequelize.DECIMAL
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
