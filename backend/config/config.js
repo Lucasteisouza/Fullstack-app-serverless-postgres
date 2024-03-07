@@ -1,4 +1,5 @@
 require('dotenv').config();
+const pg = require('pg');
 
 const config = {
   user: process.env.POSTGRES_USER,
@@ -6,6 +7,7 @@ const config = {
   host: process.env.POSTGRES_HOST,
   database: process.env.POSTGRES_DATABASE,
   dialect: 'postgres',
+  dialectModule: pg
 };
 
 module.exports = {
