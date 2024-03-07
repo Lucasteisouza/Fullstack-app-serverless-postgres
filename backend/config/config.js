@@ -6,6 +6,7 @@ const config = {
   password: process.env.POSTGRES_PASSWORD,
   host: process.env.POSTGRES_HOST,
   database: process.env.POSTGRES_DATABASE,
+  url: process.env.POSTGRES_URL,
   dialect: 'postgres',
   dialectModule: pg
 };
