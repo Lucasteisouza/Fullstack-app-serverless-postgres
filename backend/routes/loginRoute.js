@@ -3,7 +3,7 @@ const router = express.Router();
 const loginInfo = require('../middlewares/loginInfo');
 const usersController = require('../controllers/usersControllers');
 
-router.get(
+router.post(
   '/',
   loginInfo.verifyAuthFields,
   loginInfo.verifyExistance,
@@ -12,7 +12,7 @@ router.get(
 );
 
 router.post(
-  '/',
+  '/register',
   usersController.postNewUser
   
 );

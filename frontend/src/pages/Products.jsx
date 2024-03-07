@@ -9,7 +9,14 @@ function Products() {
   const [state, setState] = useState({ products: [], filteredProducts: [], search: ''})
 
   useEffect(() => {;
-    fetch(`${BACKEND_URL}/products`)
+    fetch(`${BACKEND_URL}/products`, {
+      method: 'GET',
+      mode: 'no-cors',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    
+    })
     .then(response => response.json())
     .then(data => {
       setState({ ...state, products: data })

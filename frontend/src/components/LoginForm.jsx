@@ -18,7 +18,6 @@ function LoginForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log(state)
     navigate('/products')
   }
 

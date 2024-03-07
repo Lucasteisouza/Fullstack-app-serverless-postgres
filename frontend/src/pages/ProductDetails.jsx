@@ -12,7 +12,14 @@ function ProductDetails() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`${BACKEND_URL}/products/${id}`)
+    fetch(`${BACKEND_URL}/products/${id}`, {
+      method: 'GET',
+      mode: 'no-cors',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    
+    })
     .then(response => response.json())
     .then(data => {
       setState({ product: data })
@@ -26,6 +33,10 @@ function ProductDetails() {
   const handleRemoveProduct = () => {
     fetch(`${BACKEND_URL}/products/${id}`, {
       method: 'DELETE',
+      mode: 'no-cors',
+      headers: {
+        'Content-Type': 'application/json'
+      }
     })
     .then(response => {
       console.log(response);
