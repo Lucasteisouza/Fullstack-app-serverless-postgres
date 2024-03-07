@@ -33,7 +33,7 @@ function RegisterForm() {
       .then(response => response.json())
       .then(data => {
         console.log('Success:', data);
-        navigate('/products')
+        navigate('/login');
       })
     } catch (error) {
       console.log('Something went wrong');
